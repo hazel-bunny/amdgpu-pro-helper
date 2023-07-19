@@ -1,0 +1,23 @@
+#! /bin/bash
+
+INTERNET="no"
+
+internet_check() {
+      # Check for internet connection
+      wget -q --spider http://google.com
+      if [ $? -eq 0 ]; then
+          export INTERNET="yes"
+      fi
+}
+
+internet_check
+
+if [[ $INTERNET == yes ]]; then
+	if dnf list --installed | grep libdrm-pro ; then
+		python3 /usr/share/amdgpu-pro-helper/scripts/amdgpu-pro-helper.py
+	else
+		exec /usr/share/amdgpu-pro-helper/scripts/amdgpu-modify.sh
+	fi
+else
+	zenity --error --title='Failed!' --text='No Internet Connection!'
+fi
