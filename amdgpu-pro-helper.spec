@@ -1,5 +1,5 @@
 Name:          amdgpu-pro-helper
-Version:       0.1
+Version:       0.1.1
 Release:       1%{?dist}
 Epoch:         1
 License:       GPLv3
@@ -8,7 +8,7 @@ Summary:       Tools for amdgpu-pro stack in fedora
 
 URL:           https://github.com/hazel-bunny/%{name}
 
-Source0:       %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:       %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires: gettext
 BuildRequires: python3-devel
@@ -110,5 +110,8 @@ mv LICENSE %{buildroot}%{_datadir}/licenses/%{name}/
 %py_byte_compile %{python3} %{buildroot}%{_datadir}/%{name}/scripts/%{name}.py
 
 %changelog
+* Thu Jul 20 2023 Dipta Biswas <dabiswas112@gmail.com> - 1:0.1.1-1
+- Fix spec for copr
+
 * Wed Jul 19 2023 Dipta Biswas <dabiswas112@gmail.com> - 1:0.1-1
 - Initial release
