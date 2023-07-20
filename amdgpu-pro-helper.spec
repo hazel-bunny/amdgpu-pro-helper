@@ -1,6 +1,6 @@
 Name:          amdgpu-pro-helper
-Version:       0.1.1
-Release:       1%{?dist}
+Version:       0.1.2
+Release:       %autorelease
 Epoch:         1
 License:       GPLv3
 Group:         System Environment/Libraries
@@ -20,6 +20,10 @@ Requires:      fedora-packager
 Requires:      rpmdevtools
 Requires:      mock
 Requires:      zenity
+
+Recommends:    amdgpu-opencl-switcher
+Recommends:    amdgpu-opengl-switcher
+Recommends:    amdgpu-vulkan-switcher
 
 %description
 Tools for installation and use of amdgpu-pro stack in fedora
